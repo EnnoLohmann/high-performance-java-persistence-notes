@@ -1,22 +1,22 @@
-package dev.lohmann.relationships.manytoone.unidirectionalmanytoone;
+package dev.lohmann.relationships.onetoone.bidirectionalonetoone;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-@Path("/relationships/unidirectionalmanytoone")
+@Path("/relationships/bidirectionalonetoone")
 public class RelationshipResource {
 
     @GET
     @Transactional
-    public Post createmanytooneObject() {
+    public PostComment createmanytooneObject() {
         Post post = new Post();
         PostComment postComment = new PostComment();
 
-        postComment.setPost(post);
+        post.setPostComment(postComment);
         post.persist();
         postComment.persist();
 
-        return post;
+        return postComment;
     }
 }

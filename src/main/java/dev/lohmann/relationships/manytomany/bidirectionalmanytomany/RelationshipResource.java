@@ -1,10 +1,10 @@
-package dev.lohmann.relationships.manytoone.unidirectionalmanytoone;
+package dev.lohmann.relationships.manytomany.bidirectionalmanytomany;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-@Path("/relationships/unidirectionalmanytoone")
+@Path("/relationships/bidirectionalmanytoMany")
 public class RelationshipResource {
 
     @GET
@@ -13,7 +13,7 @@ public class RelationshipResource {
         Post post = new Post();
         PostComment postComment = new PostComment();
 
-        postComment.setPost(post);
+        post.getPostComments().add(postComment);
         post.persist();
         postComment.persist();
 

@@ -31,3 +31,11 @@ The JoinColumn Annotation can be used so that no mapping Table is needed. The Pe
 
 In a list hibernate tries to preserve the order of the List when deleting and adding elements. This cost performance cause it generate additional queries.
 If the order is not importet you should use a set for better performance.
+
+## Cascade
+
+In ManyToMany Relationships the Delete Cascade Type does not make much sense. A combination of Persist and Merge should be used instead
+
+## Conclusion
+
+The best performing relationships are the one where the foreign Key is managed by the Child side. 
